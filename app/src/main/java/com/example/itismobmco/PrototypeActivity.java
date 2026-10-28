@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,12 +25,7 @@ public abstract class PrototypeActivity extends AppCompatActivity {
     protected final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResource());
-        configureToolbarBack(R.id.toolbar);
-        configureToolbarBack(R.id.toolbarPracticeList);
-        configureToolbarBack(R.id.toolbarCreatePractice);
-        configureToolbarBack(R.id.toolbarGenerateLineup);
-        configureToolbarBack(R.id.toolbarEditLineup);
-        configureToolbarBack(R.id.toolbarViewLineup);
+        configureToolbarBackButtons(findViewById(android.R.id.content));
         onScreenReady();
     }
 
@@ -68,10 +64,15 @@ public abstract class PrototypeActivity extends AppCompatActivity {
         });
     }
 
-    private void configureToolbarBack(int toolbarId) {
-        MaterialToolbar toolbar = findViewById(toolbarId);
-        if (toolbar != null) {
-            toolbar.setNavigationOnClickListener(ignored -> getOnBackPressedDispatcher().onBackPressed());
+    private void configureToolbarBackButtons(View view) {
+        if (view instanceof MaterialToolbar) {
+            ((MaterialToolbar) view).setNavigationOnClickListener(ignored -> finish());
+        }
+        if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
+            for (int index = 0; index < group.getChildCount(); index++) {
+                configureToolbarBackButtons(group.getChildAt(index));
+            }
         }
     }
 
