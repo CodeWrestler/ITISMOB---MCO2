@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_background"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarCreatePractice"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green_primary"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@color/white"
+        app:title="Create Practice"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Schedule Session"
+                android:textColor="@color/green_dark"
+                android:textSize="26sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Set up a new practice or race event for your dragonboat crew."
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <!-- Event Type Selection -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Event Type"
+                android:textColor="@color/green_primary"
+                android:textSize="15sp" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleEventType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:checkedButton="@+id/btnTypePractice"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTypePractice"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Practice 🛶"
+                    android:textColor="@color/green_dark" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTypeRace"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Race / Regatta 🏆"
+                    android:textColor="@color/green_dark" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Practice Details Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:text="Session Details"
+                        android:textColor="@color/green_dark"
+                        android:textSize="18sp" />
+
+                    <!-- Title -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPracticeTitle"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_regular"
+                        android:hint="Practice Title / Session Name"
+                        app:boxStrokeColor="@color/green_primary"
+                        app:hintTextColor="@color/green_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPracticeTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:inputType="textCapWords"
+                            android:text="Saturday Morning Practice" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Date & Time Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPracticeDate"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="6dp"
+                            android:fontFamily="@font/nunito_regular"
+                            android:hint="Date"
+                            app:boxStrokeColor="@color/green_primary"
+                            app:hintTextColor="@color/green_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPracticeDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:inputType="date"
+                                android:text="November 8, 2026" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPracticeTime"
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/nunito_regular"
+                            android:hint="Time"
+                            app:boxStrokeColor="@color/green_primary"
+                            app:hintTextColor="@color/green_primary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPracticeTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/nunito_regular"
+                                android:inputType="time"
+                                android:text="6:00 AM - 8:30 AM" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!-- Venue -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPracticeVenue"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:hint="Venue / Location"
+                        app:boxStrokeColor="@color/green_primary"
+                        app:hintTextColor="@color/green_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPracticeVenue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:inputType="textPostalAddress"
+                            android:text="Manila Bay Boathouse, Roxas Blvd" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- RSVP Deadline -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilRsvpDeadline"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:hint="RSVP Deadline"
+                        app:boxStrokeColor="@color/green_primary"
+                        app:helperText="Paddlers must confirm attendance before this date"
+                        app:helperTextTextColor="@color/green_primary"
+                        app:hintTextColor="@color/green_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRsvpDeadline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:inputType="text"
+                            android:text="November 5, 2026, 8:00 PM" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Target Boat Size / Capacity -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilBoatCapacity"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:hint="Boat Type &amp; Crew Target"
+                        app:boxStrokeColor="@color/green_primary"
+                        app:hintTextColor="@color/green_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etBoatCapacity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:inputType="text"
+                            android:text="Standard Boat (20 Paddlers + Drummer + Steer)" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Instructions / Notes -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilPracticeNotes"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/nunito_regular"
+                        android:hint="Reminders &amp; Special Equipment (Optional)"
+                        app:boxStrokeColor="@color/green_primary"
+                        app:hintTextColor="@color/green_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPracticeNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_regular"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:lines="3"
+                            android:text="Bring hydration, personal paddle, and PFD. Warm-up starts promptly at 5:45 AM." />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Create Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreatePractice"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="Create Practice"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:backgroundTint="@color/green_primary" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
