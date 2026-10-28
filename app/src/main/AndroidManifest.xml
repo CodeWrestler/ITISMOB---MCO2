@@ -12,6 +12,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ITISMOBMCO">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PracticeListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PracticeDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreatePracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttachTrainingPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RsvpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PracticeNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GenerateLineupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditLineupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewLineupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CheckInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AttendanceRecordActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

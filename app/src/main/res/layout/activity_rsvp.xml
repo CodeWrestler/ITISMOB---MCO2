@@ -207,7 +207,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/nunito_bold"
-                            android:text="? Maybe"
+                            android:text="Maybe"
                             android:textColor="@color/green_dark" />
 
                         <com.google.android.material.button.MaterialButton
